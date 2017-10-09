@@ -64,7 +64,7 @@ public class Employee {
         return startDate;
     }
 
-    public boolean isSalary() {
+    public boolean getSalary() {
         return salary;
     }
 
@@ -92,17 +92,17 @@ public class Employee {
         this.payRate = payRate;
     }
     public double calculate(double hoursIn){
-        if(salary){
+        if(salary){ //calculates pay for salary employees
             pay = payRate*hoursIn;
-        }else{
-            if(hoursIn > 40){
+        }else{ // calculates pay for hourly employees
+            if(hoursIn > 40){ //calculates pay with overtime
                 pay = payRate*40 + (hoursIn-40)*payRate*1.5;
             }else{
                 pay = payRate*hoursIn;
             }
         }
 
-        switch(shift) {
+        switch(shift) { //modifies pay based on shift
             case 1:
                 pay*= 1;
                 break;
